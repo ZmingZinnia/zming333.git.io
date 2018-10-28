@@ -196,7 +196,7 @@ progress::-moz-progress-value {
     margin: 0 auto;
     margin-top:20px;
     margin-bottom: 10px;
-    background-image:url('../zmcc.jpg');
+    background-image:url('../zmcc_invalid.jpg');
     background-size: 120%;
     background-position:center;
     border-radius:50%;
