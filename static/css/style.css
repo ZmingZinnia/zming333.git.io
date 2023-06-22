@@ -48,6 +48,7 @@ span {
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -87,19 +88,54 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 12px;
 }
 
+.work-color {
+    color: #000;
+}
+
+.work-comp-proj-desc {
+    padding-left: 10px;
+    color: #000;
+}
+
+.info-unit ul li:hover {
+    color: #c1d35a;
+}
+
+a:hover{
+    color: #e25057;
+
+}
+
+.other-desc {
+    padding-left: 10px;
+    color:#000;
+}
+
 
 hr {
     margin-bottom: 8px;
 }
 
 .info-unit {
-    color: #666;
+    color: #9b6f6f;
     margin-bottom: 20px;
 }
 
 .remodal-img h3 {
     float: left;
     margin-bottom: 10px;
+}
+
+.work-title {
+    color: #000;
+}
+
+.work-comp-title {
+    color: #000;
+}
+
+.dev-title {
+    color: #000;
 }
 
 .remodal-img input {
@@ -129,9 +165,6 @@ body {
     background-color: lightslategray;
     font-family: sans-serif, Microsoft Yahei, Helvetica Neue;
     zoom: 80%;
-}
-
-footer {
 }
 
 p {
@@ -238,9 +271,6 @@ progress::-moz-progress-value {
     background-color: #d4dee4;
 }
 
-.info-unit ul li:hover {
-    background-color: #d4dee4;
-}
 
 .info-header .unit-remove {
     float: right;
