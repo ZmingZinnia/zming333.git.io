@@ -3,11 +3,10 @@
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
 .mac-os-11 { --title-bar-height: 28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -23,6 +22,8 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
@@ -50,12 +51,12 @@ sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inh
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
 figure > table { margin: 0px; }
-thead, tr { break-inside: avoid; break-after: auto; }
+tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 32px; }
 .CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
-.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror-linenumber { }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
@@ -72,7 +73,6 @@ div.hr:focus { cursor: none; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
 .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
 .CodeMirror-line, twitterwidget { break-inside: avoid; }
-svg { break-inside: avoid; }
 .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
 .footnotes + .footnotes { margin-top: 0px; }
 .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
@@ -87,14 +87,12 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
-  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
-  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -132,7 +130,6 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 }
 a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
 .footnote-line a:not(.reversefootnote) { color: inherit; }
-.reversefootnote { font-family: ui-monospace, sans-serif; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 code, pre, samp, tt { font-family: var(--monospace); }
@@ -171,7 +168,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -202,96 +199,57 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
-mjx-container { break-inside: avoid; }
 
-
-/* for resume  <-- */
-#write {
-    padding-top: 0px !important;
-    padding-bottom: 20px !important;
-}
-
-content {
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-}
-
-a {
-    color: #000;
-}
-
-h1,
-h2 {
-    border-bottom: 1px solid #eee !important;
-    margin-bottom: 3px !important;
-    padding-bottom: 3px !important;
-}
-
-h2 img {
-    width: 16px !important;
-}
-
-h2 {
-    font-size: 17px !important;
-}
-
-p {
-    margin-bottom: 2px !important;
-    margin-top: 2px !important;
-}
-
-ul {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
-}
-
-li p {
-    margin-bottom: 0px !important;
-}
-
-li.md-list-item {
-    line-height: 20px !important;
-}
-
-a {
-    color: #555 !important;
-}
-
-/* for resume --> */
 
 :root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
-html {
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
 
 #write {
     max-width: 860px;
-    margin: 0 auto;
-    padding: 30px;
+  	margin: 0 auto;
+  	padding: 30px;
     padding-bottom: 100px;
 }
 
-#write>ul:first-child,
-#write>ol:first-child {
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
     margin-top: 30px;
 }
 
 a {
     color: #4183C4;
 }
-
 h1,
 h2,
 h3,
@@ -305,7 +263,6 @@ h6 {
     line-height: 1.4;
     cursor: text;
 }
-
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -314,83 +271,84 @@ h5:hover a.anchor,
 h6:hover a.anchor {
     text-decoration: none;
 }
-
 h1 tt,
 h1 code {
     font-size: inherit;
 }
-
 h2 tt,
 h2 code {
     font-size: inherit;
 }
-
 h3 tt,
 h3 code {
     font-size: inherit;
 }
-
 h4 tt,
 h4 code {
     font-size: inherit;
 }
-
 h5 tt,
 h5 code {
     font-size: inherit;
 }
-
 h6 tt,
 h6 code {
     font-size: inherit;
 }
-
 h1 {
-    padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
-
 h2 {
-    padding-bottom: .3em;
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
 }
 
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
 }
-
 h4 {
     font-size: 1.25em;
 }
-
 h5 {
     font-size: 1em;
 }
-
 h6 {
-    font-size: 1em;
+   font-size: 1em;
     color: #777;
 }
-
 p,
 blockquote,
 ul,
 ol,
 dl,
-table {
+table{
     margin: 0.8em 0;
 }
-
 li>ol,
 li>ul {
     margin: 0 0;
 }
-
 hr {
     height: 2px;
     padding: 0;
@@ -404,71 +362,57 @@ hr {
 li p.first {
     display: inline-block;
 }
-
 ul,
 ol {
     padding-left: 30px;
 }
-
 ul:first-child,
 ol:first-child {
     margin-top: 0;
 }
-
 ul:last-child,
 ol:last-child {
     margin-bottom: 0;
 }
-
 blockquote {
     border-left: 4px solid #dfe2e5;
     padding: 0 15px;
     color: #777777;
 }
-
 blockquote blockquote {
     padding-right: 0;
 }
-
 table {
     padding: 0;
     word-break: initial;
 }
-
 table tr {
-    border-top: 1px solid #dfe2e5;
+    border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
-
 table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-
-table tr th {
+table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
-    text-align: left;
     margin: 0;
     padding: 6px 13px;
 }
-
-table tr td {
+table td {
     border: 1px solid #dfe2e5;
-    text-align: left;
     margin: 0;
     padding: 6px 13px;
 }
-
-table tr th:first-child,
-table tr td:first-child {
+table th:first-child,
+table td:first-child {
     margin-top: 0;
 }
-
-table tr th:last-child,
-table tr td:last-child {
+table th:last-child,
+table td:last-child {
     margin-bottom: 0;
 }
 
@@ -477,7 +421,7 @@ table tr td:last-child {
 }
 
 .code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
     border-top: 1px solid #eef2f2;
 }
 
@@ -505,31 +449,25 @@ code {
 }
 
 
-.md-task-list-item>input {
-    margin-left: -1.3em;
+.md-task-list-item > input {
+  margin-left: -1.3em;
 }
 
 @media print {
     html {
         font-size: 13px;
     }
-
-    table,
     pre {
         page-break-inside: avoid;
-    }
-
-    pre {
         word-wrap: break-word;
     }
 }
 
 .md-fences {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
-
 #write pre.md-meta-block {
-    padding: 1rem;
+	padding: 1rem;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
@@ -540,33 +478,29 @@ code {
 }
 
 .mathjax-block>.code-tooltip {
-    bottom: .375rem;
+	bottom: .375rem;
 }
 
 .md-mathjax-midline {
     background: #fafafa;
 }
 
-#write>h3.md-focus:before {
-    left: -1.5625rem;
-    top: .375rem;
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
 }
-
-#write>h4.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h5.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h6.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
 .md-image>.md-meta {
     /*border: 1px solid #ddd;*/
     border-radius: 3px;
@@ -580,9 +514,9 @@ code {
     opacity: 1;
 }
 
-.md-toc {
-    margin-top: 20px;
-    padding-bottom: 20px;
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
 }
 
 .sidebar-tabs {
@@ -606,15 +540,12 @@ code {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header,
-.context-menu,
-.megamenu-content,
-footer {
+header, .context-menu, .megamenu-content, footer{
     font-family: "Segoe UI", "Arial", sans-serif;
 }
 
 .file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state {
+.file-node-content:hover .file-node-open-state{
     visibility: visible;
 }
 
@@ -627,9 +558,9 @@ footer {
     color: #b4654d;
 }
 
-.html-for-mac .context-menu {
+/*.html-for-mac {
     --item-hover-bg-color: #E6F0FE;
-}
+}*/
 
 #md-notification .btn {
     border: 0;
@@ -637,7 +568,23 @@ footer {
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
+    opacity: 0.4;
 }
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
 
  @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
 </style><title>Resume</title>
@@ -666,6 +613,6 @@ footer {
              <a href="https://chatgpt-x.zming.info">online chatgpt</a>
          </span>
      </div>
- </center><p>&nbsp;</p><h2 id='个人信息'><img src="assets/info-circle-solid.svg" width="30px"><span> 个人信息 </span></h2><ul><li><p><span>男，1996 年出生</span></p></li><li><p><span>求职意向：后端研发工程师</span></p></li><li><p><span>工作经验：超5年</span></p></li></ul><h2 id='工作经历'><img src="assets/briefcase-solid.svg" width="30px"><span> 工作经历</span></h2><h2 id='北京下厨房科技有限公司后端开发工程师2018920236'><img src="assets/company.svg" width="30px"><a href='https://www.xiachufang.com'><span>北京下厨房科技有限公司</span></a><span>，后端开发工程师，2018.9~2023.6 </span></h2><blockquote><p><span>国内最受欢迎的美食菜谱应用，千万用户，百万日活</span></p></blockquote><h3 id='主要项目经历'><img src="assets/project-diagram-solid.svg" width="30px"><span>主要项目经历</span></h3><ul><li><p><strong><span>UGC审核系统</span></strong></p><p><code>Keyword: Python、Celery、rabbitmq、ElasticSearch、TIDB、Flink、Scala、Grafana、InfluxDB、Docker、上亿数据</code></p><p><span>随着下厨房用户内容增长量的爆发，五花八门的恶意内容不断出现，内容审核也变得越来越重要</span></p><p><span>在这个背景下，我主要负责了内容审核系统项目的重建与设计，并进行后续迭代。</span></p><p><span>我制定了审核流程，拆分审核规则，极大简化了增加分类器的工作，缩短后续迭代周期，并且维护了用户体验，使得整个审核逻辑对用户无感知，引入用户行为感知，使得恶意用户发布内容成本更高，并提供了完整的监控流程。项目上线后，恶意内容用户投诉率也由4%降到0.1%</span></p></li><li><p><strong><span>通知服务</span></strong></p><p><code>Keyword: Kotlin、Mysql、Grpc、Celery、Spring、gradle、Sharding-JDBC、Docker、cmake、上亿数据、分库</code></p><p><span>在下厨房之前的通知服务中，偶发出现数据库慢查询的问题，导致通知发送的延迟和不可靠性。为了提高通知服务的性能和可靠性，我负责对通知服务进行重构、设计与优化，提供一个高稳定的系统。</span></p><p><span>我重新定义了接口，旨在更好地满足业务需求并简化通知结构, 通过打平通知结构，我消除了复杂的关联关系，减少迭代成本，使得我们能够更快地适应业务需求的变化。</span></p><p><span>将原有单库架构改成分库结构，降低数据库负载，提高项目可用性，引入Sharding-JDBC实现了分库的透明操作和高性能查询，大大提升了用户体验，避免了通知发送的延迟。</span></p></li><li><p><strong><span>合同服务</span></strong></p><p><code>Keyword: Python、Flask、Celery、Mysql、Docker、成本优化</code></p><p><span>在面对入驻讲师数量增加所带来的合同签订和管理工作占据财务部门大部分时间的挑战时，我主导了一个优化项目，旨在解决这个问题。</span></p><p><span>首先，我与财务部门和讲师深入沟通，全面了解合同签订的各个流程和相关需求。通过仔细分析现有流程中的痛点和瓶颈，我确定了优化的方向和目标。</span></p><p><span>接着，我与前端团队紧密配合，实施了线上合同服务。我们基于讲师合同的要求和财务部门的需求，设计和开发了一个在线合同签署系统。这个系统简化了合同签署流程，使得讲师可以通过电子签名快速签署合同。同时，财务部门可以方便地跟踪和管理合同状态。</span></p><p><span>通过引入线上合同服务，我们成功将合同签署周期从几周缩短到几天。这大大提高了合同签署的效率，并减少了管理成本。讲师和财务部门的工作流程得到了极大简化，他们可以更专注于核心业务，提高工作效率和满意度。</span></p></li><li><p><strong><span>搜索服务</span></strong></p><p><code>Keyword: Go、grpc、Statsd、Grafana、InfluxDB、Docker、ElasticSearch、Redis、Flink、Scalc、pyspark</code></p><p><span>为了满足用户的搜索需求，我们构建了一套基于 </span><code>go</code><span> 实现的搜索系统，其中我负责维护 </span><code>厨studio</code><span> 业务模块</span></p><p><span>期间切割了算法匹配和业务逻辑，业务需求不再关心关键词语义匹配准确率，减轻了上手难度</span></p></li><li><p><strong><span>IM服务</span></strong></p></li></ul><p><span>	</span><code>Keyword: Python、Docker、Falsk、基于shard分表分库、Mysql、S3、CDN、Redis</code></p><p><span>	</span><span>抽象了消息接口，使得消息和接口解耦，并基于</span><code>shard</code><span>理念将用户的消息数据扩散到各个表和数据库中以减少索引、数据库压力，其</span><span>	</span><span>中图片使用对象存储，并提供cdn加速访问，保证消息系统的可靠和稳定。</span></p><p><img src="assets/tech.svg" width="30px"><strong><span>技术贡献</span></strong></p><ul><li><p><span>引入H265编码，对于热点视频进行编码替换，减少1/5的带宽成本</span></p></li><li><p><span>参与静态语法解析工具的搭建，基于ast进行代码层级检查</span></p></li><li><p><span>封装了http client, 统一控制异常管理、超时请求</span></p></li><li><p><span>优化ac机算法，引入</span><a href='https://github.com/anknown/ahocorasick'><span>双列表实现</span></a><span>，有效提高了查询效率，并降低了内存使用</span></p></li><li><p><span>对负责的服务语言版本的更新，确保始终使用最新技术</span></p></li></ul><h2 id='北京海文互知网络技术有限公司python开发工程师2017520187'><img src="assets/company.svg" width="30px"><strong><a href='https://www.seafile.com'><span>北京海文互知网络技术有限公司</span></a><span>，Python开发工程师，2017.5~2018.7</span></strong></h2><blockquote><p><span>安全、可靠、快速的企业云盘</span></p></blockquote><h3 id='主要项目经历-2'><img src="assets/project-diagram-solid.svg" width="30px"><span>主要项目经历</span></h3><ul><li><p><span>SeafES</span></p><p><code>Keyword: Python、Redis、ElasticSearch、cmake、分布式索引</code></p></li><li><p><span>Seafile-Docker</span></p><p><code>Keyword: Docker、Vagrant、bash</code><span> </span></p></li><li><p><span>SeafEvent</span></p><p><code>Keyword: Python、libevent、sqlalchemy、ldap</code><span> </span></p></li></ul><h2 id='教育经历'><span> </span><img src="assets/graduation-cap-solid.svg" width="30px"><span>教育经历</span></h2><ul><li><p><span>金华职业技术学院 </span><code>计算机网络技术</code><span> </span><code>2014-2017</code></p></li><li><p><span>杭州电子科技大学，</span><code>网络工程</code><span> </span><code>2015-2020</code></p></li><li><p><span>全国物联网竞赛三等奖 </span><code>2015</code></p></li></ul><h2 id='技能清单'><img src="assets/tools-solid.svg" width="30px"><span> 技能清单</span></h2><ul><li><p><span>Python、Go为主力语言、了解Kotlin、C#、Rust、Shell</span></p></li><li><p><span>精通数据库优化与设计</span></p></li><li><p><span>熟悉服务器高并发模型，多线程、多进程、协程、多路io复用</span></p></li><li><p><span>熟悉Flask、Django、Spring、Tornado、Gin等框架</span></p></li><li><p><span>熟悉Mysql、TiDB、ElasticSearch、influxDB数据库，了解postgresql以及clickhourse</span></p></li><li><p><span>熟悉Redis、RabbitMQ、Kafka消息队列服务</span></p></li><li><p><span>熟悉Docker、Docker-Swarn, Ansible, 了解K8s</span></p></li><li><p><span>熟悉服务器部署以及日常维护</span></p></li><li><p><span>熟悉TCP/IP、HTTP、OAUTH、DNS等常见协议</span></p></li><li><p><span>熟悉缓存技术，负载均衡、流量控制、熔断技术</span></p></li><li><p><span>熟悉ELK等监控体系的搭建</span></p></li><li><p><span>熟悉对象存储和CDN</span></p></li><li><p><span>了解Flink、Hive、Hadoop等大数据组件</span></p></li><li><p><span>了解ai工具的使用</span></p></li><li><p><span>了解大数据分析，熟练使用pyspark、jupyter</span></p></li><li><p><span>了解Javascript、Backbone、Bootstrap</span></p></li></ul></div></div>
+ </center><p>&nbsp;</p><h2 id='个人信息'><img src="assets/info-circle-solid.svg" width="30px"><span> 个人信息 </span></h2><ul><li><span>男，1996 年出生</span></li><li><span>求职意向：后端研发工程师</span></li><li><span>工作经验：6年</span></li></ul><h2 id='工作经历'><img src="assets/briefcase-solid.svg" width="30px"><span> 工作经历</span></h2><h2 id='北京下厨房科技有限公司后端开发工程师2018920236'><img src="assets/company.svg" width="40px"><span> </span><a href='https://www.xiachufang.com'><span>北京下厨房科技有限公司</span></a><span>，后端开发工程师，2018.9~2023.6 </span></h2><blockquote><p><span>国内最受欢迎的美食菜谱应用，千万用户，百万日活</span></p></blockquote><h4 id='主要项目经历-1'><img src="assets/project-diagram-solid.svg" width="30px"><span>主要项目经历</span></h4><ul><li><p><strong><span>UGC审核系统</span></strong></p><p><code>Keyword: Python、Celery、rabbitmq、ElasticSearch、TIDB、Flink、Scala、Grafana、InfluxDB、Docker、上亿数据</code></p><p><span>随着下厨房用户内容增长量的爆发，五花八门的恶意内容不断出现，内容审核也变得越来越重要</span></p><p><span>在这个背景下，我主要负责了内容审核系统项目的重建与设计，并进行后续迭代。</span></p><p><span>我制定了审核流程，拆分审核规则，极大简化了增加分类器的工作，缩短后续迭代周期，并且维护了用户体验，使得整个审核逻辑对用户无感知，引入用户行为感知，使得恶意用户发布内容成本更高，并提供了完整的监控流程。项目上线后，恶意内容用户投诉率也由4%降到0.1%</span></p></li><li><p><strong><span>通知服务</span></strong></p><p><code>Keyword: Kotlin、Mysql、Grpc、Celery、Spring、gradle、Sharding-JDBC、Docker、cmake、上亿数据、分库</code></p><p><span>在下厨房之前的通知服务中，偶发出现数据库慢查询的问题，导致通知发送的延迟和不可靠性。为了提高通知服务的性能和可靠性，我负责对通知服务进行重构、设计与优化，提供一个高稳定的系统。</span></p><p><span>我重新定义了接口，旨在更好地满足业务需求并简化通知结构, 通过打平通知结构，我消除了复杂的关联关系，减少迭代成本，使得我们能够更快地适应业务需求的变化。</span></p><p><span>将原有单库架构改成分库结构，降低数据库负载，提高项目可用性，引入Sharding-JDBC实现了分库的透明操作和高性能查询，大大提升了用户体验，避免了通知发送的延迟。</span></p></li><li><p><strong><span>合同服务</span></strong></p><p><code>Keyword: Python、Flask、Celery、Mysql、Docker、成本优化</code></p><p><span>在面对入驻讲师数量增加所带来的合同签订和管理工作占据财务部门大部分时间的挑战时，我主导了一个优化项目，旨在解决这个问题。</span></p><p><span>首先，我与财务部门和讲师深入沟通，全面了解合同签订的各个流程和相关需求。通过仔细分析现有流程中的痛点和瓶颈，我确定了优化的方向和目标。</span></p><p><span>接着，我与前端团队紧密配合，实施了线上合同服务。我们基于讲师合同的要求和财务部门的需求，设计和开发了一个在线合同签署系统。这个系统简化了合同签署流程，使得讲师可以通过电子签名快速签署合同。同时，财务部门可以方便地跟踪和管理合同状态。</span></p><p><span>通过引入线上合同服务，我们成功将合同签署周期从几周缩短到几天。这大大提高了合同签署的效率，并减少了管理成本。讲师和财务部门的工作流程得到了极大简化，他们可以更专注于核心业务，提高工作效率和满意度。</span></p></li><li><p><strong><span>短信服务</span></strong></p><p><code>Keyword: Python、gevent、gunicorn、Docker、基于权重选择服务商</code></p></li></ul><ul><li><p><strong><span>搜索服务</span></strong></p><p><code>Keyword: Go、grpc、Statsd、Grafana、InfluxDB、Docker、ElasticSearch、Redis、Flink、Scalc</code></p></li><li><p><strong><span>IM服务</span></strong></p><p><code>Keyword: Python、Docker、Falsk、基于shard分表分库、Mysql、S3、CDN、Redis</code></p></li></ul><ul><li><p><strong><span>程序化广告服务</span></strong></p><p><code>Keyword: Go、grpc、Gin、Docker、Redis</code></p></li></ul><p><img src="assets/tech.svg" width="30px"><strong><span>技术贡献</span></strong></p><ul><li><span>引入H265编码，对于热点视频进行编码替换，减少1/5的带宽成本</span></li><li><span>参与静态语法解析工具的搭建，基于ast进行代码层级检查</span></li><li><span>封装了</span><em><span>http client</span></em><span>, 统一控制异常管理、超时请求</span></li><li><span>优化</span><em><span>ac机</span></em><span>算法，引入</span><a href='https://github.com/anknown/ahocorasick'><span>双列表实现</span></a><span>，有效提高了查询效率，并降低了内存使用</span></li><li><span>引入</span><code>pt-online-schema-change</code><span>，构建内部改表服务，引入审核机制，减少线上故障</span></li><li><span>对负责的服务语言版本的更新，确保始终使用最新技术</span></li></ul><h2 id='北京海文互知网络技术有限公司python开发工程师2017520187'><img src="assets/company.svg" width="30px"><strong><a href='https://www.seafile.com'><span>北京海文互知网络技术有限公司</span></a><span>，Python开发工程师，2017.5~2018.7</span></strong></h2><blockquote><p><span>安全、可靠、快速的企业云盘</span></p></blockquote><h3 id='主要项目经历-2'><img src="assets/project-diagram-solid.svg" width="30px"><span>主要项目经历</span></h3><ul><li><p><span>SeafES</span></p><p><code>Keyword: Python、Redis、ElasticSearch、cmake、分布式索引</code></p></li><li><p><span>Seafile-Docker</span></p><p><code>Keyword: Docker、Vagrant、bash</code><span> </span></p></li><li><p><span>SeafEvent</span></p><p><code>Keyword: Python、libevent、sqlalchemy、ldap</code><span> </span></p></li></ul><h2 id='教育经历'><img src="assets/graduation-cap-solid.svg" width="30px"><span>教育经历</span></h2><ul><li><span>金华职业技术学院 </span><code>计算机网络技术</code><span> </span><code>2014-2017</code></li><li><span>杭州电子科技大学，</span><code>网络工程</code><span> </span><code>2015-2020</code></li><li><span>全国物联网竞赛三等奖 </span><code>2015</code></li></ul><h2 id='技能清单'><img src="assets/tools-solid.svg" width="30px"><span> 技能清单</span></h2><ul><li><span>Python、Go为主力语言、了解Kotlin、C#、Rust、Shell</span></li><li><span>精通数据库优化与设计</span></li><li><span>熟悉服务器高并发模型，多线程、多进程、协程、多路io复用</span></li><li><span>熟悉Flask、Django、Spring、Tornado、Gin等框架</span></li><li><span>熟悉Mysql、TiDB、ElasticSearch、influxDB数据库，了解postgresql以及clickhourse</span></li><li><span>熟悉Redis、RabbitMQ、Kafka消息队列服务</span></li><li><span>熟悉Docker、Docker-Swarn, Ansible, 了解K8s</span></li><li><span>熟悉服务器部署以及日常维护</span></li><li><span>熟悉TCP/IP、HTTP、OAUTH、DNS等常见协议</span></li><li><span>熟悉缓存技术，负载均衡、流量控制、熔断技术</span></li><li><span>熟悉ELK等监控体系的搭建</span></li><li><span>熟悉对象存储和CDN</span></li><li><span>了解Flink、Hive、Hadoop等大数据组件</span></li><li><span>了解ai工具的使用</span></li><li><span>了解大数据分析，熟练使用pyspark、jupyter</span></li><li><span>了解Javascript、Backbone、Bootstrap</span></li></ul></div></div>
 </body>
 </html>
